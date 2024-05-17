@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <!-- Adicionando Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="modalErros" class="modal">
+        <div class="modal-content">
+            <div style="display: flex; align-items: center; width: 75px; justify-content: space-between;">
+                <span class="fechar">&times;</span><span class="fechar pequeno">Fechar</span>
+            </div>
+
+            <div style="text-align: center;">
+                <h4>Atenção, verifique as Informações abaixo:</h4>
+            </div>
+            <div id="listaErros"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+            <img src="https://tecbiz.com.br/wp-content/uploads/2021/10/tecbiz-215x215.png" alt="">
+            <h2 class="mt-4 mb-4">Formulário de solicitação</h2>
+        </div>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="titulo_obrigatorio">* campos obrigatórios</div>
+            <div>
+                <div>
+                    <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="nome_completo">Nome completo: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="nome_completo" name="nome_completo"
+                                    maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="nome_preferencial">Nome preferencial:</label>
+                                <input type="text" class="form-control" id="nome_preferencial" name="nome_preferencial"
+                                    maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="cpf">CPF: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="cpf" name="cpf"
+                                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14">
+                                <div id="cpf-error" class="error-message" style="display: none;">CPF inválido</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="data_nascimento">Data de nascimento: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="nome_mae">Nome da mãe: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="nome_mae" name="nome_mae" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="nome_pai">Nome do pai:</label>
+                                <input type="text" class="form-control" id="nome_pai" name="nome_pai" maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="nacionalidade">Nacionalidade: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="nacionalidade" name="nacionalidade"
+                                    maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="naturalidade">Naturalidade: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="naturalidade" name="naturalidade"
+                                    maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="estado_civil">Estado civil: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="estado_civil" name="estado_civil"
+                                    maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="conjuge">Cônjuge:</label>
+                                <input type="text" class="form-control" id="conjuge" name="conjuge" maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="email">E-mail: <span class="obrigatorio">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Celular: <span class="obrigatorio">*</span></label>
+                                <input type="tel" class="form-control" id="telefone" name="telefone" pattern="[0-9]{15}"
+                                    maxlength="15">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Informações Profissionais</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="nivel_escolaridade">Nível de escolaridade: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="nivel_escolaridade"
+                                    name="nivel_escolaridade" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="empresa_trabalho">Empresa para qual trabalha: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="empresa_trabalho" name="empresa_trabalho"
+                                    maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="cnpj_empresa">CNPJ da Empresa: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="cnpj_empresa" name="cnpj_empresa"
+                                    pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}" maxlength="18">
+                            </div>
+                            <div class="form-group">
+                                <label for="ocupacao">Ocupação:</label>
+                                <input type="text" class="form-control" id="ocupacao" name="ocupacao">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="renda_mensal">Renda mensal (R$): <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="renda_mensal" name="renda_mensal"
+                                    pattern="\d+(\.\d{1,2})?" maxlength="10">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <fieldset>
+                        <legend>Endereço</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="rua_av">Rua/Av.: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="rua" name="rua" maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="numero">Número: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="numero" name="numero" maxlength="20">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="cep">CEP: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="cep" name="cep" pattern="\d{5}-\d{3}"
+                                    maxlength="9">
+                            </div>
+                            <div class="form-group">
+                                <label for="bairro">Bairro: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="bairro" name="bairro" maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="uf">UF: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="uf" name="uf" pattern="[A-Za-z]{2}"
+                                    maxlength="2">
+                            </div>
+                            <div class="form-group">
+                                <label for="cidade">Cidade: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="cidade" name="cidade" maxlength="50">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="complemento">Complemento:</label>
+                                <input type="text" class="form-control" id="complemento" name="complemento"
+                                    maxlength="50">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Informações Bancárias</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="banco">Banco: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="banco" name="banco" maxlength="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="agencia">Agência: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="agencia" name="agencia" maxlength="10">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="tipo_conta">Tipo de conta: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="tipo_conta" name="tipo_conta"
+                                    maxlength="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="numero_conta">Número da conta: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="numero_conta" name="numero_conta"
+                                    maxlength="10">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="digito_conta">Dígito da conta: <span class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control" id="digito_conta" name="digito_conta"
+                                    maxlength="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="chave_pix">Chave PIX:</label>
+                                <input type="text" class="form-control" id="chave_pix" name="chave_pix" maxlength="200">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <fieldset>
+                        <legend>Documentos</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="identidade">Identidade completa: <span class="obrigatorio">*</span></label>
+                                <input type="file" class="form-control-file" id="identidade" name="identidade"
+                                    accept=".pdf,.jpg,.png">
+                            </div>
+                            <div class="form-group">
+                                <label for="comprovante_endereco">Comprovante de endereço: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="file" class="form-control-file" id="comprovante_endereco"
+                                    name="comprovante_endereco" accept=".pdf,.jpg,.png">
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <button id="enviar" class="btn-md btn-warning mt-3 btn-block mb-5 p-2" style="color: white;">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Adicionando Bootstrap JS (opcional, se necessário) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./mask.js"></script>
+    <script src="./cpfcnpj.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#telefone').mask('(99) 9999-99999');
+            $('#cpf').mask('999.999.999-99');
+            $('#data').mask('99/99/9999');
+            $('#cnpj_empresa').mask('99.999.999/9999-99');
+            $('#renda_mensal').mask('00.000,00', { reverse: true });
+            $('#cep').mask('99999-999');
+
+            $('#enviar').click(validar);
+            $('.fechar').click(function () {
+                $('.modal').css('display', 'none');
+            });
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
