@@ -4,7 +4,7 @@ include_once("./mail/phpmailer/class.phpmailer.php");
 class sendMail
 {
 
-        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false)
+        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null)
         {
                 $mail = new PHPMailer(true);
                 $mail->IsSMTP();
@@ -74,9 +74,13 @@ class sendMail
                         $mail->AddAttachment($arquivoAnexo);
                 }
 
+                if ($arquivoAnexo2) {
+                        $mail->AddAttachment($arquivoAnexo2);
+                }
+
                 if ($anexo) {
                         $file = file("/var/log/tecbiz/" . $anexo . ".txt");
-                        $msg = "Log n▒mero: " . $anexo . "<br />";
+                        $msg = "Log número: " . $anexo . "<br />";
                         foreach ($file as $ln) {
                                 $msg .= $ln . "<br />";
                         }
