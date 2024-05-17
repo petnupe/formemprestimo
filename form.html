@@ -7,7 +7,7 @@
     <title>Formulário</title>
     <!-- Adicionando Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <h2 class="mt-4 mb-4">Formulário de solicitação</h2>
         </div>
 
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="./src/envia.php" method="post" enctype="multipart/form-data">
             <div class="titulo_obrigatorio">* campos obrigatórios</div>
             <div>
                 <div>
@@ -51,8 +51,7 @@
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="cpf">CPF: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="cpf" name="cpf"
-                                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" maxlength="14">
+                                <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14">
                                 <div id="cpf-error" class="error-message" style="display: none;">CPF inválido</div>
                             </div>
                             <div class="form-group">
@@ -102,8 +101,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="telefone">Celular: <span class="obrigatorio">*</span></label>
-                                <input type="tel" class="form-control" id="telefone" name="telefone" pattern="[0-9]{15}"
-                                    maxlength="15">
+                                <input type="tel" class="form-control" id="telefone" name="telefone" maxlength="15">
                             </div>
                         </div>
                     </fieldset>
@@ -129,7 +127,7 @@
                             <div class="form-group">
                                 <label for="cnpj_empresa">CNPJ da Empresa: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="cnpj_empresa" name="cnpj_empresa"
-                                    pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}" maxlength="18">
+                                    maxlength="18">
                             </div>
                             <div class="form-group">
                                 <label for="ocupacao">Ocupação:</label>
@@ -140,7 +138,7 @@
                             <div class="form-group">
                                 <label for="renda_mensal">Renda mensal (R$): <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="renda_mensal" name="renda_mensal"
-                                    pattern="\d+(\.\d{1,2})?" maxlength="10">
+                                    maxlength="10">
                             </div>
                         </div>
                     </fieldset>
@@ -163,8 +161,7 @@
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="cep">CEP: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="cep" name="cep" pattern="\d{5}-\d{3}"
-                                    maxlength="9">
+                                <input type="text" class="form-control" id="cep" name="cep" maxlength="9">
                             </div>
                             <div class="form-group">
                                 <label for="bairro">Bairro: <span class="obrigatorio">*</span></label>
@@ -174,8 +171,7 @@
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="uf">UF: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="uf" name="uf" pattern="[A-Za-z]{2}"
-                                    maxlength="2">
+                                <input type="text" class="form-control" id="uf" name="uf" maxlength="2">
                             </div>
                             <div class="form-group">
                                 <label for="cidade">Cidade: <span class="obrigatorio">*</span></label>
@@ -261,8 +257,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./mask.js"></script>
-    <script src="./cpfcnpj.js"></script>
+    <script src="./src/js/mask.js"></script>
+    <script src="./src/js/cpfcnpj.js"></script>
     <script>
         $(document).ready(function () {
             $('#telefone').mask('(99) 9999-99999');

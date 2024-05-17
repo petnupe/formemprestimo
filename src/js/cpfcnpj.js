@@ -416,13 +416,17 @@ function validar() {
 		$('.modal').css('display', 'block');
 		event.preventDefault();
 	} else {
-		alert('vou submeter');
+		if (confirm('Confirma o envio dos dados?')) {
+			document.forms['0'].submit();
+		} else {
+			event.preventDefault();
+		}
 	}
 
 }
 
 function validarEmail(email) {
-    // Expressão regular para validar o formato do e-mail
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+	// Expressão regular para validar o formato do e-mail
+	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return re.test(email);
 }
