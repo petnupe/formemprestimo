@@ -117,23 +117,12 @@
                                     name="nivel_escolaridade" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="empresa_trabalho">Empresa para qual trabalha: <span
-                                        class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="empresa_trabalho" name="empresa_trabalho"
-                                    maxlength="50">
-                            </div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <div class="form-group">
-                                <label for="cnpj_empresa">CNPJ da Empresa: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="cnpj_empresa" name="cnpj_empresa"
-                                    maxlength="18">
-                            </div>
-                            <div class="form-group">
-                                <label for="ocupacao">Ocupação:</label>
+                                <label for="ocupacao">Ocupação: <span
+                                    class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="ocupacao" name="ocupacao">
                             </div>
                         </div>
+                        
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="renda_mensal">Renda mensal (R$): <span class="obrigatorio">*</span></label>
@@ -264,7 +253,6 @@
             $('#telefone').mask('(99) 9999-99999');
             $('#cpf').mask('999.999.999-99');
             $('#data').mask('99/99/9999');
-            $('#cnpj_empresa').mask('99.999.999/9999-99');
             $('#renda_mensal').mask('00.000,00', { reverse: true });
             $('#cep').mask('99999-999');
 

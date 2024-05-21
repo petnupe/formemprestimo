@@ -14,6 +14,4 @@ $compResidencia = '../uploads/' . basename($_FILES['comprovante_endereco']['name
 
 $mail = new sendMail(array('peterson@tecbiz.com.br', 'credenciamento@tecbiz.com.br', 'oseias@tecbiz.com.br'), 'Form empréstimo', $mensagem, null, null, $rg, null, true, false, false, $compResidencia);
 
-
-
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../form.html";</script>';

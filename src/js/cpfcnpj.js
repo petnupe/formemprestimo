@@ -363,11 +363,8 @@ function validar() {
 	if ($('#nivel_escolaridade').val().length < 3)
 		erroHTML += '<li>Nível de Escolaridade inválido!</li>';
 
-	if ($('#empresa_trabalho').val().length < 3)
-		erroHTML += '<li>Empresa de Trabalho inválida!</li>';
-
-	if (!validaCNPJ(filtra_caracteres_nao_numericos($('#cnpj_empresa').val())))
-		erroHTML += '<li>CNPJ da Empresa inválido!</li>';
+	if ($('#ocupacao').val().length < 3)
+		erroHTML += '<li>Ocupação inválida!</li>';
 
 	if ($('#renda_mensal').val().length < 3)
 		erroHTML += '<li>Renda Mensal inválida!</li>';
