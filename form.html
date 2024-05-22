@@ -117,12 +117,11 @@
                                     name="nivel_escolaridade" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="ocupacao">Ocupação: <span
-                                    class="obrigatorio">*</span></label>
+                                <label for="ocupacao">Ocupação: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="ocupacao" name="ocupacao">
                             </div>
                         </div>
-                        
+
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="renda_mensal">Renda mensal (R$): <span class="obrigatorio">*</span></label>
@@ -218,6 +217,27 @@
             <div>
                 <div>
                     <fieldset>
+                        <legend>Dados da operação</legend>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="form-group">
+                                <label for="valor_solicitado">Valor solicitado: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control-file" id="valor_solicitado"
+                                    name="valor_solicitado" placeholder="A partir de R$ 500,00">
+                            </div>
+                            <div class="form-group">
+                                <label for="parcelas">Quantidade de parcelas: <span class="obrigatorio">*</span></label>
+                                <input type="number" class="form-control-file" id="parcelas" name="parcelas"
+                                    placeholder="Mínimo 4 parcelas" maxlength="3">
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <fieldset>
                         <legend>Documentos</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
@@ -254,6 +274,8 @@
             $('#cpf').mask('999.999.999-99');
             $('#data').mask('99/99/9999');
             $('#renda_mensal').mask('00.000,00', { reverse: true });
+            $('#valor_solicitado').mask('000.000,00', { reverse: true });
+            $('#parcelas').mask('999');
             $('#cep').mask('99999-999');
 
             $('#enviar').click(validar);

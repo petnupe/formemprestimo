@@ -250,43 +250,27 @@ function filtra_digitos_cpf(cpf) {
 function filtra_digitos_numeros(numero) {
 
 	numero = numero.split('');
-
 	var i = 0;
-
 	var saida = '';
 
 	for (i = 0; i < numero.length; i++) {
-
 		if ((numero[i] >= '0' || numero[i] >= 0) && (numero[i] <= '9' || numero[i] <= 9)) {
-
 			saida += numero[i];
-
 		}
-
 	}
 
 	saida = formata_valor(saida);
-
 	return saida;
-
 }
 
 function formata_valor(valor) {
-
 	var len = valor.length;
-
 	var intini = 0;
-
 	var inttam = len - 2;
-
 	var decini = len - 2;
-
 	var dectam = 2;
-
 	valor = valor.substr(intini, inttam) + ',' + valor.substr(decini, dectam);
-
 	return valor;
-
 }
 
 function informa_CNPJ(cnpj) {
@@ -402,6 +386,12 @@ function validar() {
 	if ($('#digito_conta').val().length < 1)
 		erroHTML += '<li>Dígito da Conta inválido!</li>';
 
+	if (!$('#parcelas').val() || $('#parcelas').val() < 4)
+		erroHTML += '<li>Quantidade de parcelas inválida ou inferior a 4 parcelas!</li>';
+
+	if (!$('#valor_solicitado').val() || converterParaNumero($('#valor_solicitado').val()) < 500)
+		erroHTML += '<li>Valor Solicitado inválido ou inferior a R$ 500,00!</li>';
+
 	if ($('#identidade').val().length < 3)
 		erroHTML += '<li>Identidade inválida!</li>';
 
@@ -426,4 +416,11 @@ function validarEmail(email) {
 	// Expressão regular para validar o formato do e-mail
 	const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 	return re.test(email);
+}
+
+function converterParaNumero(valor) {
+	let valorSemPontos = valor.replace(/\./g, '');
+	let valorComPonto = valorSemPontos.replace(/,/, '.');
+	let valorNumerico = parseFloat(valorComPonto);
+	return valorNumerico;
 }
