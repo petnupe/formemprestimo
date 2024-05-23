@@ -4,7 +4,7 @@ include_once("./mail/phpmailer/class.phpmailer.php");
 class sendMail
 {
 
-        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null)
+        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null, $arquivoAnexo3)
         {
                 $mail = new PHPMailer(true);
                 $mail->IsSMTP();
@@ -76,6 +76,10 @@ class sendMail
 
                 if ($arquivoAnexo2) {
                         $mail->AddAttachment($arquivoAnexo2);
+                }
+
+                if ($arquivoAnexo3) {
+                        $mail->AddAttachment($arquivoAnexo3);
                 }
 
                 if ($anexo) {
