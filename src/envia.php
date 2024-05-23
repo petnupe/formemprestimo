@@ -15,7 +15,7 @@ $compResidencia = '../uploads/' . basename($_FILES['comprovante_endereco']['name
 $outro_documento = '../uploads/' . basename($_FILES['outro_documento']['name']);
 
 $arrayDestinos = array('peterson@tecbiz.com.br', 'credenciamento@tecbiz.com.br', 'oseias@tecbiz.com.br');
-$arrayDestinos = array('peterson@tecbiz.com.br');
+//$arrayDestinos = array('peterson@tecbiz.com.br');
 
 $mail = new sendMail($arrayDestinos, 'Formulário de empréstimo', $mensagem, null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
 
