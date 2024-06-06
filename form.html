@@ -219,18 +219,37 @@
                     <fieldset>
                         <legend>Dados da operação</legend>
                         <div style="display: flex; justify-content: space-between;">
-                            <div class="form-group">
+                            <div class="form-group" style="width: 30%;">
                                 <label for="valor_solicitado">Valor solicitado: <span
                                         class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control-file" id="valor_solicitado"
                                     name="valor_solicitado" placeholder="A partir de R$ 500,00">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="width: 30%;">
                                 <label for="parcelas">Quantidade de parcelas: <span class="obrigatorio">*</span></label>
                                 <input type="number" class="form-control-file" id="parcelas" name="parcelas"
                                     placeholder="Mínimo 4 parcelas" maxlength="3">
                             </div>
-
+                            <div class="form-group" style="width: 30%;">
+                                <label for="mes_vencimento">Vencimetno 1ª parcela: <span
+                                        class="obrigatorio">*</span></label>
+                                <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento"
+                                    placeholder="Mês de vencimento da 1ª parcela" list="meses">
+                                <datalist name="meses" id="meses">
+                                    <option value="Janeiro">Janeiro</option>
+                                    <option value="Fevereiro">Fevereiro</option>
+                                    <option value="Março">Março</option>
+                                    <option value="Abril">Abril</option>
+                                    <option value="Maio">Maio</option>
+                                    <option value="Junho">Junho</option>
+                                    <option value="Julho">Julho</option>
+                                    <option value="Agosto">Agosto</option>
+                                    <option value="Setembro">Setembro</option>
+                                    <option value="Outubro">Outubro</option>
+                                    <option value="Novembro">Novembro</option>
+                                    <option value="Dezembro">Dezembro</option>
+                                </datalist>
+                            </div>
                         </div>
                     </fieldset>
                 </div>

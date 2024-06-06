@@ -389,6 +389,9 @@ function validar() {
 	if (!$('#parcelas').val() || $('#parcelas').val() < 4)
 		erroHTML += '<li>Quantidade de parcelas inválida ou inferior a 4 parcelas!</li>';
 
+	if (!$('#mes_vencimento').val() || $('#mes_vencimento').val().length < 4)
+		erroHTML += '<li>Mês de vencimento da primeira parcela inválido!</li>';
+
 	if (!$('#valor_solicitado').val() || converterParaNumero($('#valor_solicitado').val()) < 500)
 		erroHTML += '<li>Valor Solicitado inválido ou inferior a R$ 500,00!</li>';
 
