@@ -33,7 +33,7 @@ $dadosAssociado = json_decode($json);
             </div>
 
             <div style="text-align: center;">
-                <h4>Atenção, verifique as Informações abaixo:</h4>
+                <h4>Aten&ccedil;&atilde;o, verifique as Informa&ccedil;&otilde;es abaixo:</h4>
             </div>
             <div id="listaErros"></div>
         </div>
@@ -41,13 +41,13 @@ $dadosAssociado = json_decode($json);
     <div class="container">
         <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
             <img src="https://tecbiz.com.br/wp-content/uploads/2021/10/tecbiz-215x215.png" alt="">
-            <h2 class="mt-4 mb-4">Formulário de solicitação</h2>
+            <h2 class="mt-4 mb-4">Formul&aacute;rio de solicita&ccedil;&otilde;o</h2>
         </div>
 
         <form action="./src/envia.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="emailDestino" value="<?= $dadosAssociado->emailEntidade; ?>" style="display: none;">
             <input type="hidden" name="cartao" value="<?= $dadosAssociado->cartao; ?>" style="display: none;">
-            <div class="titulo_obrigatorio">* campos obrigatórios</div>
+            <div class="titulo_obrigatorio">* campos obrigat&oacute;rios</div>
             <div>
                 <div>
                     <fieldset>

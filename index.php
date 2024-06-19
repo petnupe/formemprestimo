@@ -29,7 +29,7 @@ $hash = md5(date('Y-m-d'));
     <div class="container">
         <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
             <img src="https://tecbiz.com.br/wp-content/uploads/2021/10/tecbiz-215x215.png" alt="">
-            <h2 class="mt-4 mb-4">Formulário de solicitação</h2>
+            <h2 class="mt-4 mb-4">Formul&aacute;rio de solicita&ccedil;&otilde;o</h2>
         </div>
 
         <form action="./form.php" method="post" enctype="multipart/form-data">
