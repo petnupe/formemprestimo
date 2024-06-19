@@ -313,6 +313,26 @@ function filtra_caracteres_nao_numericos(numero) {
 	return saida;
 }
 
+
+function validarCartao() {
+
+	let erroHTML = '';
+
+	var regex = /^6298 69/;
+	if ($('#cartao').val().length != 19 || !regex.test($('#cartao').val()))
+		erroHTML += '<li>Número de Cartão inválido!</li>';
+
+	if (erroHTML.length > 0) {
+		$('#listaErros').html("<ul>" + erroHTML + "</ul>");
+		$('.modal').css('display', 'block');
+		event.preventDefault();
+	} else {
+		document.forms['0'].submit();
+	}
+
+}
+
+
 function validar() {
 
 	let erroHTML = '';
