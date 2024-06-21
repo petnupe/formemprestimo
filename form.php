@@ -7,7 +7,6 @@ if (!isset($_POST['hash']) || $_POST['hash'] != md5(date('Y-m-d')))
 //$host = 'http://192.168.15.30:8080/tecbiz/tecbiz.php?a=5e7ae4&cartao=' . str_replace(" ", "", $_POST['cartao']);
 $host = 'https://www2.tecbiz.com.br/tecbiz/tecbiz.php?a=5e7ae4&cartao=' . str_replace(" ", "", $_POST['cartao']);
 
-echo $host;
 $json = file_get_contents($host);
 $dadosAssociado = json_decode($json);
 
