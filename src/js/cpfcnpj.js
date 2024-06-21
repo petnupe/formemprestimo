@@ -99,7 +99,7 @@ function validacpfCNPJ(cpfCNPJ) {
 
 		} else {
 
-			alert('cpf/CNPJ inv�lido');
+			alert('cpf/CNPJ inv&aacute;lido');
 
 		}
 
@@ -121,7 +121,7 @@ function formatacpfCNPJ(cpfCNPJ) {
 
 		} else {
 
-			alert('Nao e poss�vel formatar cpf/CNPJ"');
+			alert('Nao e possível formatar cpf/CNPJ"');
 
 		}
 

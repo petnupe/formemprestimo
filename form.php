@@ -1,7 +1,8 @@
 <?php
 
 if (!isset($_POST['hash']) || $_POST['hash'] != md5(date('Y-m-d')))
-    die('Esta página não pode ser acessad diretamente');
+
+    die('Esta página n&atilde;o pode ser acessad diretamente');
 
 //$host = 'http://192.168.15.30:8080/tecbiz/tecbiz.php?a=5e7ae4&cartao=' . str_replace(" ", "", $_POST['cartao']);
 $host = 'https://www2.tecbiz.com.br/tecbiz/tecbiz.php?a=5e7ae4&cartao=' . str_replace(" ", "", $_POST['cartao']);
@@ -75,7 +76,7 @@ $dadosAssociado = json_decode($json);
 
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
-                                <label for="nome_mae">Nome da mãe: <span class="obrigatorio">*</span></label>
+                                <label for="nome_mae">Nome da m&atilde;e: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="nome_mae" name="nome_mae" maxlength="50">
                             </div>
                             <div class="form-group">
@@ -99,7 +100,7 @@ $dadosAssociado = json_decode($json);
                                 <input type="text" class="form-control" id="estado_civil" name="estado_civil" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="conjuge">Cônjuge:</label>
+                                <label for="conjuge">C&ocirc;njuge:</label>
                                 <input type="text" class="form-control" id="conjuge" name="conjuge" maxlength="50">
                             </div>
                         </div>
@@ -117,14 +118,14 @@ $dadosAssociado = json_decode($json);
                 </div>
                 <div>
                     <fieldset>
-                        <legend>Informações Profissionais</legend>
+                        <legend>Informa&ccedil;&otilde;es Profissionais</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="nivel_escolaridade">Nível de escolaridade: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="nivel_escolaridade" name="nivel_escolaridade" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="ocupacao">Ocupação: <span class="obrigatorio">*</span></label>
+                                <label for="ocupacao">Ocupaç&atilde;o: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="ocupacao" name="ocupacao">
                             </div>
                         </div>
@@ -141,7 +142,7 @@ $dadosAssociado = json_decode($json);
             <div>
                 <div>
                     <fieldset>
-                        <legend>Endereço <span class="obrigatorio" style="font-size: 8pt;">(Dados do comprovante de endereço)</span></legend>
+                        <legend>Endere&ccedil;o <span class="obrigatorio" style="font-size: 8pt;">(Dados do comprovante de endere&ccedil;o)</span></legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="rua_av">Rua/Av.: <span class="obrigatorio">*</span></label>
@@ -182,14 +183,14 @@ $dadosAssociado = json_decode($json);
                 </div>
                 <div>
                     <fieldset>
-                        <legend>Informações Bancárias</legend>
+                        <legend>Informa&ccedil;&otilde;es Banc&aacute;rias</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="banco">Banco: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="banco" name="banco" maxlength="30">
                             </div>
                             <div class="form-group">
-                                <label for="agencia">Agência: <span class="obrigatorio">*</span></label>
+                                <label for="agencia">Ag&ecirc;ncia: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="agencia" name="agencia" maxlength="10">
                             </div>
                         </div>
@@ -199,13 +200,13 @@ $dadosAssociado = json_decode($json);
                                 <input type="text" class="form-control" id="tipo_conta" name="tipo_conta" maxlength="20">
                             </div>
                             <div class="form-group">
-                                <label for="numero_conta">Número da conta: <span class="obrigatorio">*</span></label>
+                                <label for="numero_conta">N&uacute;mero da conta: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="numero_conta" name="numero_conta" maxlength="10">
                             </div>
                         </div>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
-                                <label for="digito_conta">Dígito da conta: <span class="obrigatorio">*</span></label>
+                                <label for="digito_conta">D&iacute;gito da conta: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="digito_conta" name="digito_conta" maxlength="1">
                             </div>
                             <div class="form-group">
@@ -219,7 +220,7 @@ $dadosAssociado = json_decode($json);
             <div>
                 <div>
                     <fieldset>
-                        <legend>Dados da operação</legend>
+                        <legend>Dados da operaç&atilde;o</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group" style="width: 30%;">
                                 <label for="valor_solicitado">Valor solicitado: <span class="obrigatorio">*</span></label>
@@ -235,7 +236,7 @@ $dadosAssociado = json_decode($json);
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
                                     <option value="Fevereiro">Fevereiro</option>
-                                    <option value="Março">Março</option>
+                                    <option value="Março">Mar&cedil;o</option>
                                     <option value="Abril">Abril</option>
                                     <option value="Maio">Maio</option>
                                     <option value="Junho">Junho</option>
