@@ -9,8 +9,8 @@ $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
 $mensagem = null;
 
 unset($_REQUEST['emailDestino']);
-
-$_REQUEST['data_nascimento'] = DateTime::createFromFormat('m/d/Y', $_REQUEST['data_nascimento'])->format('d/m/Y');
+$dataAmericana = explode("-", $_REQUEST['data_nascimento']);
+$_REQUEST['data_nascimento'] = $dataAmericana[2] . '/' . $dataAmericana[1] . "/" . $dataAmericana[0];
 
 foreach ($_REQUEST as $key => $value)
     $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . utf8_encode($value) . "<br />";
