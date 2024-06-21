@@ -211,7 +211,12 @@ if (is_null($dadosAssociado)) {
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
                                 <label for="tipo_conta">Tipo de conta: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="tipo_conta" name="tipo_conta" maxlength="20">
+                                <input type="text" class="form-control" id="tipo_conta" name="tipo_conta" maxlength="20" list="tipos_conta">
+                                <datalist name="tipos_conta" id="tipos_conta">
+                                    <option name="Corrente">Corrente</option>
+                                    <option name="Poupan&ccedil;a">Poupan&ccedil;a</option>
+                                    <option name="Pagamento">Pagamento</option>
+                                </datalist>
                             </div>
                             <div class="form-group">
                                 <label for="numero_conta">N&uacute;mero da conta: <span class="obrigatorio">*</span></label>
@@ -250,7 +255,7 @@ if (is_null($dadosAssociado)) {
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
                                     <option value="Fevereiro">Fevereiro</option>
-                                    <option value="Março">Mar&cedil;o</option>
+                                    <option value="Mar&ccedil;o">Mar&cedil;o</option>
                                     <option value="Abril">Abril</option>
                                     <option value="Maio">Maio</option>
                                     <option value="Junho">Junho</option>
