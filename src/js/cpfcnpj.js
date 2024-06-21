@@ -275,7 +275,7 @@ function validar() {
 
 	if ($("#data_nascimento").val().length < 10) erroHTML += "<li>Data de nascimento inv&aacute;lida!</li>";
 
-	if ($("#nome_mae").val().length < 3) erroHTML += "<li>Nome da Mãe inv&aacute;lido!</li>";
+	if ($("#nome_mae").val().length < 3) erroHTML += "<li>Nome da M&acedil;e inv&aacute;lido!</li>";
 
 	if ($("#nacionalidade").val().length < 3) erroHTML += "<li>Nacionalidade inv&aacute;lida!</li>";
 
@@ -287,9 +287,9 @@ function validar() {
 
 	if ($("#telefone").val().length < 14) erroHTML += "<li>Celular inv&aacute;lido!</li>";
 
-	if ($("#nivel_escolaridade").val().length < 3) erroHTML += "<li>Nível de Escolaridade inv&aacute;lido!</li>";
+	if ($("#nivel_escolaridade").val().length < 3) erroHTML += "<li>N&iacute;vel de Escolaridade inv&aacute;lido!</li>";
 
-	if ($("#ocupacao").val().length < 3) erroHTML += "<li>Ocupação inv&aacute;lida!</li>";
+	if ($("#ocupacao").val().length < 3) erroHTML += "<li>Ocupa&ccedil;&acedil;o inv&aacute;lida!</li>";
 
 	if ($("#renda_mensal").val().length < 3) erroHTML += "<li>Renda Mensal inv&aacute;lida!</li>";
 
@@ -307,7 +307,7 @@ function validar() {
 
 	if ($("#banco").val().length < 1) erroHTML += "<li>Banco inv&aacute;lido!</li>";
 
-	if ($("#agencia").val().length < 1) erroHTML += "<li>Agência inv&aacute;lida!</li>";
+	if ($("#agencia").val().length < 1) erroHTML += "<li>Ag&ecirc;ncia inv&aacute;lida!</li>";
 
 	if ($("#tipo_conta").val().length < 3) erroHTML += "<li>Tipo de Conta inv&aacute;lido!</li>";
 
@@ -323,7 +323,7 @@ function validar() {
 
 	if ($("#identidade").val().length < 3) erroHTML += "<li>Identidade inv&aacute;lida!</li>";
 
-	if ($("#comprovante_endereco").val().length < 3) erroHTML += "<li>Comprovante de Endereço inv&aacute;lido!</li>";
+	if ($("#comprovante_endereco").val().length < 3) erroHTML += "<li>Comprovante de Endere&ccedil;o inv&aacute;lido!</li>";
 
 	if (erroHTML.length > 0) {
 		$("#listaErros").html("<ul>" + erroHTML + "</ul>");
