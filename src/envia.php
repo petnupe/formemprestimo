@@ -8,6 +8,10 @@ include_once("./sendmail.php");
 $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads') . DIRECTORY_SEPARATOR;
 $mensagem = null;
 
+unset($_REQUEST['emailDestino']);
+
+$_REQUEST['data_nascimento'] = DateTime::createFromFormat('m/d/Y', $_REQUEST['data_nascimento'])->format('d/m/Y');
+
 foreach ($_REQUEST as $key => $value)
     $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . utf8_encode($value) . "<br />";
 
