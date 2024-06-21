@@ -17,8 +17,14 @@ if (json_last_error() > 0) {
 var_dump($dadosAssociado);
 
 
+
 if (is_null($dadosAssociado)) {
-    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\nN&uacute;mero de cart&acedil;o inv&aacute;lido! \\nNúmero de cartão inválido!');</script>";
+
+    $texto = "Número de cartão inválido!";
+
+    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\n{$texto}');</script>";
+    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\n" . utf8_decode($texto) . "');</script>";
+
     die('Número de cart&atilde;o inv&aacute;lido!');
 }
 
