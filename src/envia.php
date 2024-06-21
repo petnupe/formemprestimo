@@ -1,8 +1,8 @@
 <?php
-
+/*
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
-
+*/
 include_once("./sendmail.php");
 
 $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads') . DIRECTORY_SEPARATOR;
@@ -14,8 +14,15 @@ unset($_REQUEST['emailDestino']);
 $dataAmericana = explode("-", $_REQUEST['data_nascimento']);
 $_REQUEST['data_nascimento'] = $dataAmericana[2] . '/' . $dataAmericana[1] . "/" . $dataAmericana[0];
 
-foreach ($_REQUEST as $key => $value)
-    $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . utf8_encode($value) . "<br />";
+foreach ($_REQUEST as $key => $value) {
+
+    $value = mb_detect_encoding($value) != 'UTF-8' ? utf8_encode($value) : $value;
+
+    echo mb_detect_encoding($value) . " - " . $value . "<br />";
+
+    $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . $value . "<br />";
+}
+
 
 $string = http_build_query($_REQUEST);
 $prefix = $_REQUEST['cartao'] . "-" . date('Ymd') . "-";
@@ -30,7 +37,7 @@ $outro_documento = null;
 
 if (trim($_FILES['outro_documento']['name']) != '') {
     move_uploaded_file($_FILES['outro_documento']['tmp_name'], $baseDir . basename($_FILES['outro_documento']['name'])) or die('Sem permissao 3');
-    $outro_documento = $baseDir . $prefix . basename($_FILES['outro_documento']['name']);
+    $outro_documento = $baseDir . basename($_FILES['outro_documento']['name']);
 }
 
 $arrayDestinos = array($emailDestino);
