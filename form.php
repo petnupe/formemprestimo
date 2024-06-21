@@ -14,10 +14,6 @@ if (json_last_error() > 0) {
     $dadosAssociado = json_decode($json);
 }
 
-var_dump($dadosAssociado);
-
-
-
 if (is_null($dadosAssociado)) {
 
     $texto = "**ATENÇÃO**\\n\\nNúmero de cartão inválido!";
