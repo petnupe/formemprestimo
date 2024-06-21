@@ -24,10 +24,7 @@ if (is_null($dadosAssociado)) {
     echo "
     <script>
         alert('**ATEN&Ccedil;&Atilde;O**\\n\\n" . utf8_decode($texto) . "');
-        window.open('./form.php', '_self');
-    
-    
-    
+        window.open('./index.php', '_self');
     </script>";
     die($texto);
 }
