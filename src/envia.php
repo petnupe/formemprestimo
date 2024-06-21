@@ -42,4 +42,4 @@ if (trim($_FILES['outro_documento']['name']) != '') {
 $arrayDestinos = array($emailDestino);
 
 $mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
-echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
+//echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
