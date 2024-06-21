@@ -114,7 +114,7 @@ function formatacpfCNPJ(cpfCNPJ) {
 		if (cpfCNPJ.length == 14) {
 			return formataCNPJ(cpfCNPJ);
 		} else {
-			alert('Nao e possível formatar cpf/CNPJ"');
+			alert('Nao e poss&iacute; formatar cpf/CNPJ"');
 		}
 	}
 }
@@ -126,7 +126,7 @@ function desformatacpfCNPJ(cpfCNPJ) {
 		if (cpfCNPJ.length == 18) {
 			return desformataCNPJ(cpfCNPJ);
 		} else {
-			alert('Nao e poss�vel desformatar cpf/CNPJ"');
+			alert('Nao e poss&iacute; desformatar cpf/CNPJ"');
 		}
 	}
 }
