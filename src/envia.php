@@ -8,6 +8,8 @@ include_once("./sendmail.php");
 $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads') . DIRECTORY_SEPARATOR;
 $mensagem = null;
 
+$emailDestino = $_REQUEST['emailDestino'];
+
 unset($_REQUEST['emailDestino']);
 $dataAmericana = explode("-", $_REQUEST['data_nascimento']);
 $_REQUEST['data_nascimento'] = $dataAmericana[2] . '/' . $dataAmericana[1] . "/" . $dataAmericana[0];
@@ -31,7 +33,7 @@ if (trim($_FILES['outro_documento']['name']) != '') {
     $outro_documento = $baseDir . $prefix . basename($_FILES['outro_documento']['name']);
 }
 
-$arrayDestinos = array($_REQUEST['emailDestino']);
+$arrayDestinos = array($emailDestino);
 
 $mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
