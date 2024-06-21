@@ -18,7 +18,7 @@ $dadosAssociado = json_decode($json);
 <head>
     <meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Formul&aacute;rio</title>
     <!-- Adicionando Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
@@ -120,11 +120,11 @@ $dadosAssociado = json_decode($json);
                         <legend>Informa&ccedil;&otilde;es Profissionais</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group">
-                                <label for="nivel_escolaridade">Nível de escolaridade: <span class="obrigatorio">*</span></label>
+                                <label for="nivel_escolaridade">N&iacutevel de escolaridade: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="nivel_escolaridade" name="nivel_escolaridade" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="ocupacao">Ocupaç&atilde;o: <span class="obrigatorio">*</span></label>
+                                <label for="ocupacao">Ocupa&ccedil;&atilde;o: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="ocupacao" name="ocupacao">
                             </div>
                         </div>
@@ -148,7 +148,7 @@ $dadosAssociado = json_decode($json);
                                 <input type="text" class="form-control" id="rua" name="rua" maxlength="50">
                             </div>
                             <div class="form-group">
-                                <label for="numero">Número: <span class="obrigatorio">*</span></label>
+                                <label for="numero">N&uacute;mero: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="numero" name="numero" maxlength="20">
                             </div>
                         </div>
@@ -227,11 +227,11 @@ $dadosAssociado = json_decode($json);
                             </div>
                             <div class="form-group" style="width: 30%;">
                                 <label for="parcelas">Quantidade de parcelas: <span class="obrigatorio">*</span></label>
-                                <input type="number" class="form-control-file" id="parcelas" name="parcelas" placeholder="Mínimo 4 parcelas" maxlength="3">
+                                <input type="number" class="form-control-file" id="parcelas" name="parcelas" placeholder="M&iacute;nimo 4 parcelas" maxlength="3">
                             </div>
                             <div class="form-group" style="width: 30%;">
                                 <label for="mes_vencimento">Vencimetno 1ª parcela: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento" placeholder="Mês de vencimento da 1ª parcela" list="meses">
+                                <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento" placeholder="M&ecirc;s de vencimento da 1ª parcela" list="meses">
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
                                     <option value="Fevereiro">Fevereiro</option>
@@ -261,7 +261,7 @@ $dadosAssociado = json_decode($json);
                                 <input type="file" class="form-control-file" id="identidade" name="identidade" accept=".pdf,.jpg,.png">
                             </div>
                             <div class="form-group">
-                                <label for="comprovante_endereco">Comprovante de endereço: <span class="obrigatorio">*</span></label>
+                                <label for="comprovante_endereco">Comprovante de endere&ccedil;o: <span class="obrigatorio">*</span></label>
                                 <input type="file" class="form-control-file" id="comprovante_endereco" name="comprovante_endereco" accept=".pdf,.jpg,.png">
                             </div>
                             <div class="form-group">
