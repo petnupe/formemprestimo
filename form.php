@@ -219,7 +219,7 @@ $dadosAssociado = json_decode($json);
             <div>
                 <div>
                     <fieldset>
-                        <legend>Dados da operaç&atilde;o</legend>
+                        <legend>Dados da opera&ccedil;&atilde;o</legend>
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group" style="width: 30%;">
                                 <label for="valor_solicitado">Valor solicitado: <span class="obrigatorio">*</span></label>
@@ -230,7 +230,7 @@ $dadosAssociado = json_decode($json);
                                 <input type="number" class="form-control-file" id="parcelas" name="parcelas" placeholder="M&iacute;nimo 4 parcelas" maxlength="3">
                             </div>
                             <div class="form-group" style="width: 30%;">
-                                <label for="mes_vencimento">Vencimetno 1ª parcela: <span class="obrigatorio">*</span></label>
+                                <label for="mes_vencimento">Vencimetno 1&ordf; parcela: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento" placeholder="M&ecirc;s de vencimento da 1ª parcela" list="meses">
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
