@@ -42,7 +42,7 @@ $hash = md5(date('Y-m-d'));
                         <div style="display: flex; justify-content: space-between;">
                             <div class="form-group" style="width: 100%;">
                                 <label for="cartao">N&uacute;mero do cart&atilde;o: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control" id="cartao" name="cartao" maxlength="50" style="display: flex; flex: 1;" value="6298690100016680">
+                                <input type="text" class="form-control" id="cartao" name="cartao" maxlength="50" style="display: flex; flex: 1;">
                             </div>
                         </div>
                     </fieldset>

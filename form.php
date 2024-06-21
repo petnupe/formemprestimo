@@ -41,7 +41,7 @@ $dadosAssociado = json_decode($json);
     <div class="container">
         <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
             <img src="https://tecbiz.com.br/wp-content/uploads/2021/10/tecbiz-215x215.png" alt="">
-            <h2 class="mt-4 mb-4">Formul&aacute;rio de solicita&ccedil;&otilde;o</h2>
+            <h2 class="mt-4 mb-4">Formul&aacute;rio de solicita&ccedil;&atilde;o</h2>
         </div>
 
         <form action="./src/envia.php" method="post" enctype="multipart/form-data">
@@ -231,7 +231,7 @@ $dadosAssociado = json_decode($json);
                             </div>
                             <div class="form-group" style="width: 30%;">
                                 <label for="mes_vencimento">Vencimetno 1&ordf; parcela: <span class="obrigatorio">*</span></label>
-                                <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento" placeholder="M&ecirc;s de vencimento da 1ª parcela" list="meses">
+                                <input type="text" class="form-control-file" id="mes_vencimento" name="mes_vencimento" placeholder="M&ecirc;s de vencimento da 1&ordf; parcela" list="meses">
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
                                     <option value="Fevereiro">Fevereiro</option>

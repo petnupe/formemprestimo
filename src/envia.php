@@ -9,7 +9,7 @@ $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
 $mensagem = null;
 
 foreach ($_REQUEST as $key => $value)
-    $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . $value . "<br />";
+    $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . utf8_encode($value) . "<br />";
 
 $string = http_build_query($_REQUEST);
 $prefix = $_REQUEST['cartao'] . "-" . date('Ymd') . "-";
@@ -28,5 +28,6 @@ if (trim($_FILES['outro_documento']['name']) != '') {
 }
 
 $arrayDestinos = array($_REQUEST['emailDestino']);
+
 $mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
