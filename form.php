@@ -23,7 +23,7 @@ if (is_null($dadosAssociado)) {
     $texto = "**ATENÇÃO**\\n\\nNúmero de cartão inválido!";
     echo "
     <script>
-        alert('**ATEN&Ccedil;&Atilde;O**\\n\\n" . utf8_decode($texto) . "');
+        alert('" . utf8_decode($texto) . "');
         window.open('./index.php', '_self');
     </script>";
     die($texto);
