@@ -18,7 +18,7 @@ var_dump($dadosAssociado);
 
 
 if (is_null($dadosAssociado)) {
-    echo "<script>alert('**ATENÇÃO**\\n\\nNúmero de cartão inválido!');</script>";
+    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\nN&uacute;mero de cart&acedil;o inv&aacute;lido!');</script>";
     die('Número de cart&atilde;o inv&aacute;lido!');
 }
 
