@@ -15,7 +15,9 @@ $dataAmericana = explode("-", $_REQUEST['data_nascimento']);
 $_REQUEST['data_nascimento'] = $dataAmericana[2] . '/' . $dataAmericana[1] . "/" . $dataAmericana[0];
 
 foreach ($_REQUEST as $key => $value) {
-    $value = mb_detect_encoding($value) != 'UTF-8' ? utf8_encode($value) : $value;
+    //$value = mb_detect_encoding($value) != 'UTF-8' ? utf8_encode($value) : $value;
+
+    $value = utf8_encode($value);
     $mensagem .= ucfirst(str_replace("_", " ", $key)) . ": " . $value . "<br />";
 }
 
