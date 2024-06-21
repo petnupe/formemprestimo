@@ -20,12 +20,16 @@ var_dump($dadosAssociado);
 
 if (is_null($dadosAssociado)) {
 
-    $texto = "Número de cartão inválido!";
-
-    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\n{$texto}');</script>";
-    echo "<script>alert('**ATEN&Ccedil;&Atilde;O**\\n\\n" . utf8_decode($texto) . "');</script>";
-
-    die('Número de cart&atilde;o inv&aacute;lido!');
+    $texto = "**ATENÇÃO**\\n\\nNúmero de cartão inválido!";
+    echo "
+    <script>
+        alert('**ATEN&Ccedil;&Atilde;O**\\n\\n" . utf8_decode($texto) . "');
+        window.open('./form.php', '_self');
+    
+    
+    
+    </script>";
+    die($texto);
 }
 
 ?>
