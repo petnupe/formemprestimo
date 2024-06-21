@@ -14,6 +14,9 @@ if (json_last_error() > 0) {
     $dadosAssociado = json_decode($json);
 }
 
+var_dump($dadosAssociado);
+
+
 if (is_null($dadosAssociado)) {
     echo "<script>alert('**ATENÇÃO**\\n\\nNúmero de cartão inválido!');</script>";
     die('Número de cart&atilde;o inv&aacute;lido!');
