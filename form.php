@@ -66,7 +66,6 @@ $dadosAssociado = json_decode($json);
                             <div class="form-group">
                                 <label for="cpf">CPF: <span class="obrigatorio">*</span></label>
                                 <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14" value="<?php echo $dadosAssociado->cpf; ?>">
-                                <div id="cpf-error" class="error-message" style="display: none;" value>CPF inválido</div>
                             </div>
                             <div class="form-group">
                                 <label for="data_nascimento">Data de nascimento: <span class="obrigatorio">*</span></label>
