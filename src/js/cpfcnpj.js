@@ -275,7 +275,7 @@ function validar() {
 
 	if ($("#data_nascimento").val().length < 10) erroHTML += "<li>Data de nascimento inv&aacute;lida!</li>";
 
-	if ($("#nome_mae").val().length < 3) erroHTML += "<li>Nome da M&acedil;e inv&aacute;lido!</li>";
+	if ($("#nome_mae").val().length < 3) erroHTML += "<li>Nome da M&atilde;e inv&aacute;lido!</li>";
 
 	if ($("#nacionalidade").val().length < 3) erroHTML += "<li>Nacionalidade inv&aacute;lida!</li>";
 
@@ -289,7 +289,7 @@ function validar() {
 
 	if ($("#nivel_escolaridade").val().length < 3) erroHTML += "<li>N&iacute;vel de Escolaridade inv&aacute;lido!</li>";
 
-	if ($("#ocupacao").val().length < 3) erroHTML += "<li>Ocupa&ccedil;&acedil;o inv&aacute;lida!</li>";
+	if ($("#ocupacao").val().length < 3) erroHTML += "<li>Ocupa&ccedil;&atilde;o inv&aacute;lida!</li>";
 
 	if ($("#renda_mensal").val().length < 3) erroHTML += "<li>Renda Mensal inv&aacute;lida!</li>";
 
@@ -313,7 +313,7 @@ function validar() {
 
 	if ($("#numero_conta").val().length < 1) erroHTML += "<li>N&uacute;mero da Conta inv&aacute;lido!</li>";
 
-	if ($("#digito_conta").val().length < 1) erroHTML += "<li>Dígito da Conta inv&aacute;lido!</li>";
+	if ($("#digito_conta").val().length < 1) erroHTML += "<li>D&iacute;gito da Conta inv&aacute;lido!</li>";
 
 	if (!$("#parcelas").val() || $("#parcelas").val() < 4) erroHTML += "<li>Quantidade de parcelas inv&aacute;lida ou inferior a 4 parcelas!</li>";
 
