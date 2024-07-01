@@ -317,7 +317,7 @@ function validar() {
 
 	if (!$("#parcelas").val() || $("#parcelas").val() < 4) erroHTML += "<li>Quantidade de parcelas inv&aacute;lida ou inferior a 4 parcelas!</li>";
 
-	if (!$("#mes_vencimento").val() || $("#mes_vencimento").val().length < 4) erroHTML += "<li>MM&ecirc;s de vencimento da primeira parcela inv&aacute;lido!</li>";
+	if (!$("#mes_vencimento").val() || $("#mes_vencimento").val().length < 4) erroHTML += "<li>M&ecirc;s de vencimento da primeira parcela inv&aacute;lido!</li>";
 
 	if (!$("#valor_solicitado").val() || converterParaNumero($("#valor_solicitado").val()) < 500) erroHTML += "<li>Valor Solicitado inv&aacute;lido ou inferior a R$ 500,00!</li>";
 
