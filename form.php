@@ -19,7 +19,7 @@ if (is_null($dadosAssociado)) {
     $texto = "**ATENÇÃO**\\n\\nNúmero de cartão inválido!";
     echo "
     <script>
-        alert('" . utf8_decode($texto) . "');
+        alert('" . utf8_decode($texto) . "'); 
         window.open('./index.php', '_self');
     </script>";
     die($texto);
