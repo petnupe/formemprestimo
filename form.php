@@ -255,7 +255,7 @@ if (is_null($dadosAssociado)) {
                                 <datalist name="meses" id="meses">
                                     <option value="Janeiro">Janeiro</option>
                                     <option value="Fevereiro">Fevereiro</option>
-                                    <option value="Mar&ccedil;o">Mar&cedil;o</option>
+                                    <option value="Mar&ccedil;o">Mar&ccedil;o</option>
                                     <option value="Abril">Abril</option>
                                     <option value="Maio">Maio</option>
                                     <option value="Junho">Junho</option>
