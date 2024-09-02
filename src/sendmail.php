@@ -107,7 +107,7 @@ class sendMail
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
                 $mail->Username = "tecbizcorp";
-                $mail->Password = "dGmQjcQo6272";
+                $mail->Password = "2726oQcjbQmGd";
                 $mail->SMTPDebug = null;
                 return $mail;
         }
