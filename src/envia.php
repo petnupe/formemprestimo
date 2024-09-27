@@ -36,7 +36,7 @@ if (trim($_FILES['outro_documento']['name']) != '') {
     $outro_documento = $baseDir . basename($_FILES['outro_documento']['name']);
 }
 
-//$arrayDestinos = array($emailDestino);
+$arrayDestinos = array($emailDestino);
 
-$mail = new sendMail($emailDestino, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
+$mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
