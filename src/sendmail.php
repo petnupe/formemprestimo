@@ -100,17 +100,18 @@ class sendMail
         }
 
         public function getConfigSendPulse()
-        {
-                // Alterado o fornecedor
-                $mail = new stdClass();
-                $mail->Host = "smtplw.com.br";
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
-                $mail->Username = "tecbizcorp";
-                $mail->Password = "2726oQcjbQmGd";
-                $mail->SMTPDebug = null;
-                return $mail;
-        }
+	{
+		// Alterado o fornecedor
+		$mail = new stdClass();
+		$mail->Host = "smtplw.com.br";
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;
+		$mail->Username = "tecbizcorp";
+		$mail->Password = "2726oQcjbQmGd";
+		$mail->remetente = "naoresponda@tecbiz.com.br";
+		$mail->SMTPDebug = null;
+		return $mail;
+	}
 
         public function getConfigGmail()
         {
