@@ -3,8 +3,8 @@
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
-//include_once("./sendmail.php");
-include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/logica/elementos/sendmail.php");
+include_once("./sendmail.php");
+//include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/logica/elementos/sendmail.php");
 
 $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads') . DIRECTORY_SEPARATOR;
 $mensagem = null;
@@ -39,6 +39,6 @@ if (trim($_FILES['outro_documento']['name']) != '') {
 
 $arrayDestinos = array($emailDestino, "peterson@tecbiz.com.br");
 
-//$mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
-$mail = new sendMail("peterson@tecbiz.com.br", 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null,null, null, true, null, null);
+$mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, null, null, true, null, null, null, null);
+//$mail = new sendMail("peterson@tecbiz.com.br", 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null,null, null, true, null, null);
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';
