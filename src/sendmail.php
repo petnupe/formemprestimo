@@ -10,7 +10,7 @@ class sendMail
                 $mail->IsSMTP();
                 $remetente = "naoresponda@tecbiz.com.br";
 
-                $mail->SMTPDebug = 2;
+                //$mail->SMTPDebug = 2;
 
                 $mail->From = $remetente;
                 $fromName =  'TecBiz';
@@ -21,7 +21,7 @@ class sendMail
 
                 $sendPulse = true;
 
-                if ($sendPulse = true) {
+                if ($sendPulse == true) {
                         $config = $this->getConfigSendPulse();
                 }
 
