@@ -101,6 +101,8 @@ class sendMail
 
         public function getConfigSendPulse()
         {
+                
+                die('q');
                 // Alterado o fornecedor
                 $mail = new stdClass();
                 $mail->Host = "smtplw.com.br";
