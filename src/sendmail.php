@@ -1,141 +1,141 @@
 <?php
-include_once("./mail/phpmailer/class.phpmailer.php");
+
+include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/lib/phpmailer/class.phpmailer.php");
 
 class sendMail
 {
 
-        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null, $arquivoAnexo3)
-        {
-                $mail = new PHPMailer(true);
-                $mail->IsSMTP();
-                $remetente = "naoresponda@tecbiz.com.br";
+	function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false)
+	{
+		$mail = new PHPMailer(true);
+		$mail->IsSMTP();
+		
 
-                //$mail->SMTPDebug = 2;
+		//
+		$fromName = trim(_TBZ_NOME_PADRAO_) ? _TBZ_NOME_PADRAO_ : 'TecBiz';
+		$mail->FromName = "Email {$fromName}";
+		$mail->CharSet = 'UTF-8';
+		/**
+		 * NUNCA PUBLICAR ABAIXO
+		 */
 
-                $mail->From = $remetente;
-                $fromName =  'TecBiz';
-                $mail->FromName = "Email {$fromName}";
-                $mail->CharSet = 'UTF-8';
+		if ($emailDestino != '') {
+			$emailDestino = is_array($emailDestino) ? join("; ", array_filter($emailDestino)) : $emailDestino;
+			$msg = 'DESTINO ORIGINAL: ' . $emailDestino . '<br><br>' . $msg;
+			$emailDestino = 'tecnologia@tecbiz.com.br';
+			//$envioTerceiro = true;
+		}
 
-                $config = $this->getConfigGmail();
+		/**
+		 * NUNCA PUBLICAR ACIMA 
+		 */
 
-                //$sendPulse = true;
+		$config = $this->getConfigGmail();
+		//$mail->SMTPDebug = 2;
+		$sendPulse = true;
+		if ($sendPulse == true) {
+			$config = $this->getConfigSendPulse();
+		}
 
-                if ($sendPulse == true) {
-                        $config = $this->getConfigSendPulse();
-                }
+		if ($envioTerceiro) {
+			$config = $this->getConfigTerceiro();
+			//echo $this->remetente;
+		}
 
-                if ($envioTerceiro) {
-                        $config = $this->getConfigTerceiro();
-                }
+		$mail->Host = $config->Host;
+		$mail->SMTPSecure = $config->SMTPSecure;
+		$mail->Port = $config->Port;
+		$mail->Username = $config->Username;
+		$mail->Password = $config->Password;
+		$mail->From = $config->remetente;
+		$mail->WordWrap = 50;
+		$mail->IsHTML(true);
+		$mail->SMTPAuth = true;
 
-                $mail->Host = $config->Host;
-                $mail->SMTPSecure = $config->SMTPSecure;
-                $mail->Port = $config->Port;
+		$email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
+		$data = "";
+		if (!$semdata) {
+			$data = " - " . date("d/m/Y H:i:s");
+		}
+		$assunto = "[TESTE] " . $assunto . $data;
+		$mail->Subject = $assunto;
 
-                $mail->SMTPDebug = $config->SMTPDebug;
-                $mail->Username = $config->Username;
-                $mail->Password = $config->Password;
+		if (is_array($emailDestino)) {
+			foreach ($emailDestino as $dest) {
 
-                $mail->WordWrap = 50;
-                $mail->IsHTML(true);
-                $mail->SMTPAuth = true;
+				if ($copiaOculta) {
+					$mail->AddBCC($dest, $dest);
+				} else {
+					$mail->AddAddress($dest, $dest);
+				}
+			}
+		} else {
+			if ($copiaOculta) {
+				$mail->AddBCC($emailDestino, $emailDestino);
+			} else {
+				$mail->AddAddress($emailDestino, $emailDestino);
+			}
+		}
 
-                $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : null;
-                $data = "";
-                if (!$semdata) {
-                        $data = " - " . date("d/m/Y H:i:s");
-                }
-                $assunto = $assunto . $data;
-                $mail->Subject = $assunto;
+		if ($arquivoAnexo) {
+			$mail->AddAttachment($arquivoAnexo);
+		}
 
-                if (is_array($emailDestino)) {
-                        foreach ($emailDestino as $dest) {
+		if ($anexo) {
+			$file = file("/var/log/tecbiz/" . $anexo . ".txt");
+			$msg = "Log número: " . $anexo . "<br />";
+			foreach ($file as $ln) {
+				$msg .= $ln . "<br />";
+			}
+		}
 
-                                // $mail->AddAddress($dest, $dest);
+		$mail->Body = utf8_encode($msg);
 
-                                if ($copiaOculta) {
-                                        $mail->AddBCC($dest, $dest);
-                                } else {
-                                        $mail->AddAddress($dest, $dest);
-                                }
-                        }
-                } else {
-                        // $mail->AddAddress($emailDestino, $emailDestino);
+		if (!$mail->Send()) {
+			print("\n" . $mail->ErrorInfo . "\n");
+		} else {
+			//print "\nMensagem enviada\n\n";
+		}
+	}
 
-                        if ($copiaOculta) {
-                                $mail->AddBCC($emailDestino, $emailDestino);
-                        } else {
-                                $mail->AddAddress($emailDestino, $emailDestino);
-                        }
-                }
+	public function getConfigSendPulse()
+	{
+		// Alterado o fornecedor
+		$mail = new stdClass();
+		$mail->Host = "smtplw.com.br";
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;
+		$mail->Username = "tecbizcorp";
+		$mail->Password = "2726oQcjbQmGd";
+		$mail->remetente = "naoresponda@tecbiz.com.br";
+		$mail->SMTPDebug = null;
+		return $mail;
+	}
 
-                if ($arquivoAnexo) {
-                        $mail->AddAttachment($arquivoAnexo);
-                }
+	public function getConfigGmail()
+	{
+		$mail = new stdClass();
+		$mail->Host = "smtp.gmail.com";
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;
+		$mail->Username = "tecnologia@tecbiz.com.br";
+		$mail->Password = "tecbiz18";
+		$mail->SMTPDebug = null;
+		return $mail;
+	}
 
-                if ($arquivoAnexo2) {
-                        $mail->AddAttachment($arquivoAnexo2);
-                }
-
-                if ($arquivoAnexo3) {
-                        $mail->AddAttachment($arquivoAnexo3);
-                }
-
-                if ($anexo) {
-                        $file = file("/var/log/tecbiz/" . $anexo . ".txt");
-                        $msg = "Log número: " . $anexo . "<br />";
-                        foreach ($file as $ln) {
-                                $msg .= $ln . "<br />";
-                        }
-                }
-
-                $mail->Body = utf8_encode($msg);
-
-                if (!$mail->Send()) {
-                        print("\n" . $mail->ErrorInfo . "\n");
-                } else {
-                        //print "\nMensagem enviada\n\n";
-                }
-        }
-
-        public function getConfigSendPulse()
-        {
-                // Alterado o fornecedor
-                $mail = new stdClass();
-                $mail->Host = "smtplw.com.br";
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
-                $mail->Username = "tecbizcorp";
-                $mail->Password = "2726oQcjbQmGd";
-                $mail->remetente = "naoresponda@tecbiz.com.br";
-                $mail->SMTPDebug = null;
-                return $mail;
-        }
-
-        public function getConfigGmail()
-        {
-                $mail = new stdClass();
-                $mail->Host = "smtp.gmail.com";
-                $mail->SMTPSecure = 'ssl';
-                $mail->Port = 465;
-                $mail->Username = "atendimento@tecbiz.com.br";
-                $mail->Password = "t3cb1z@22";
-                $mail->SMTPDebug = null;
-                return $mail;
-        }
-
-        public function getConfigTerceiro()
-        {
-                $mail = new stdClass();
-                $mail->Host = "smtp.izicartoes.com.br";
-                $mail->SMTPSecure = false;
-                $mail->SMTPAutoTLS = true;
-                $mail->Port = 587;
-                $mail->Username = "atendimento@izicartoes.com.br";
-                $mail->Password = "izi$12345";
-                $mail->remetente = "atendimento@izicartoes.com.br";
-                $mail->SMTPDebug = null;
-                return $mail;
-        }
+	public function getConfigTerceiro()
+	{
+		$mail = new stdClass();
+		$mail->Host = "smtp.izicartoes.com.br";
+		$mail->SMTPSecure = false;
+		$mail->SMTPAutoTLS = true;
+		$mail->Port = 587;
+		$mail->Username = "atendimento@izicartoes.com.br";
+		$mail->Password = "izi$12345";
+		$mail->remetente = "atendimento@izicartoes.com.br";
+		$mail->SMTPDebug = null;
+		return $mail;
+	}
 }
+
