@@ -1,6 +1,6 @@
 <?php
 
-include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/lib/phpmailer/class.phpmailer.php");
+include_once("./mail/phpmailer/class.phpmailer.php");
 
 class sendMail
 {
@@ -24,6 +24,7 @@ class sendMail
                         $msg = 'DESTINO ORIGINAL: ' . $emailDestino . '<br><br>' . $msg;
                         $emailDestino = 'tecnologia@tecbiz.com.br';
                         //$envioTerceiro = true;
+                        
                 }
 
                 /**
