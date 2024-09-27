@@ -19,7 +19,7 @@ class sendMail
 
                 $config = $this->getConfigGmail();
 
-                $sendPulse = true;
+                //$sendPulse = true;
 
                 if ($sendPulse == true) {
                         $config = $this->getConfigSendPulse();
