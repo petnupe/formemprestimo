@@ -115,7 +115,6 @@ class sendMail
 
         public function getConfigGmail()
         {
-                die('asas');
                 $mail = new stdClass();
                 $mail->Host = "smtp.gmail.com";
                 $mail->SMTPSecure = 'ssl';
