@@ -38,6 +38,6 @@ if (trim($_FILES['outro_documento']['name']) != '') {
 
 $arrayDestinos = array($emailDestino, "peterson@tecbiz.com.br");
 
-//$mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
-$mail = new sendMail("peterson@tecbiz.com.br", 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null,null, null, true, null, null);
+$mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, false, true, $compResidencia, $outro_documento);
+//$mail = new sendMail("peterson@tecbiz.com.br", 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null,null, null, true, null, null);
 echo '<script type="text/javascript">alert("Dados enviados com sucesso!"); window.location.href="../index.php";</script>';

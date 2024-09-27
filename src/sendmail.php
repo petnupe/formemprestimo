@@ -1,54 +1,55 @@
 <?php
-
 include_once("./mail/phpmailer/class.phpmailer.php");
 
 class sendMail
 {
 
-        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false)
+        function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null, $arquivoAnexo3)
         {
+                
+                //$emailDestino = $emailDestino;
+		$assunto = urlencode($assunto);
+		//$msg = urlencode($msg);
+
+		// Criando a URL completa
+		$url = "http://www1.tecbiz.com.br/teste/enviaEmail.php?emailDestino=".$emailDestino."&assunto={$assunto}&msg=".urlencode($msg);
+		// Usando @ para suprimir warnings e adicionar tratamento de erro
+		$response = @file_get_contents($url);
+		return;
+
+                
+                
                 $mail = new PHPMailer(true);
                 $mail->IsSMTP();
+                $remetente = "naoresponda@tecbiz.com.br";
 
+                $mail->SMTPDebug = 2;
 
-                //
-                $fromName = trim(_TBZ_NOME_PADRAO_) ? _TBZ_NOME_PADRAO_ : 'TecBiz';
+                $mail->From = $remetente;
+                $fromName =  'TecBiz';
                 $mail->FromName = "Email {$fromName}";
                 $mail->CharSet = 'UTF-8';
-                /**
-                 * NUNCA PUBLICAR ABAIXO
-                 */
-
-                if ($emailDestino != '') {
-                        $emailDestino = is_array($emailDestino) ? join("; ", array_filter($emailDestino)) : $emailDestino;
-                        $msg = 'DESTINO ORIGINAL: ' . $emailDestino . '<br><br>' . $msg;
-                        $emailDestino = 'tecnologia@tecbiz.com.br';
-                        //$envioTerceiro = true;
-                        
-                }
-
-                /**
-                 * NUNCA PUBLICAR ACIMA 
-                 */
 
                 $config = $this->getConfigGmail();
-                //$mail->SMTPDebug = 2;
+
                 $sendPulse = true;
-                if ($sendPulse == true) {
+
+                if ($sendPulse = true) {
                         $config = $this->getConfigSendPulse();
                 }
 
                 if ($envioTerceiro) {
                         $config = $this->getConfigTerceiro();
-                        //echo $this->remetente;
                 }
 
                 $mail->Host = $config->Host;
                 $mail->SMTPSecure = $config->SMTPSecure;
                 $mail->Port = $config->Port;
+
+                $mail->SMTPDebug = $config->SMTPDebug;
                 $mail->Username = $config->Username;
                 $mail->Password = $config->Password;
-                $mail->From = $config->remetente;
+
                 $mail->WordWrap = 50;
                 $mail->IsHTML(true);
                 $mail->SMTPAuth = true;
@@ -58,11 +59,13 @@ class sendMail
                 if (!$semdata) {
                         $data = " - " . date("d/m/Y H:i:s");
                 }
-                $assunto = "[TESTE] " . $assunto . $data;
+                $assunto = $assunto . $data;
                 $mail->Subject = $assunto;
 
                 if (is_array($emailDestino)) {
                         foreach ($emailDestino as $dest) {
+
+                                // $mail->AddAddress($dest, $dest);
 
                                 if ($copiaOculta) {
                                         $mail->AddBCC($dest, $dest);
@@ -71,6 +74,8 @@ class sendMail
                                 }
                         }
                 } else {
+                        // $mail->AddAddress($emailDestino, $emailDestino);
+
                         if ($copiaOculta) {
                                 $mail->AddBCC($emailDestino, $emailDestino);
                         } else {
@@ -80,6 +85,14 @@ class sendMail
 
                 if ($arquivoAnexo) {
                         $mail->AddAttachment($arquivoAnexo);
+                }
+
+                if ($arquivoAnexo2) {
+                        $mail->AddAttachment($arquivoAnexo2);
+                }
+
+                if ($arquivoAnexo3) {
+                        $mail->AddAttachment($arquivoAnexo3);
                 }
 
                 if ($anexo) {
@@ -108,7 +121,6 @@ class sendMail
                 $mail->Port = 465;
                 $mail->Username = "tecbizcorp";
                 $mail->Password = "2726oQcjbQmGd";
-                $mail->remetente = "naoresponda@tecbiz.com.br";
                 $mail->SMTPDebug = null;
                 return $mail;
         }
@@ -119,8 +131,8 @@ class sendMail
                 $mail->Host = "smtp.gmail.com";
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
-                $mail->Username = "tecnologia@tecbiz.com.br";
-                $mail->Password = "tecbiz18";
+                $mail->Username = "atendimento@tecbiz.com.br";
+                $mail->Password = "t3cb1z@22";
                 $mail->SMTPDebug = null;
                 return $mail;
         }
