@@ -1,6 +1,6 @@
 <?php
 
-include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/lib/phpmailer/class.phpmailer.php");
+include_once("./mail/class.phpmailer.php");
 
 class sendMail
 {
