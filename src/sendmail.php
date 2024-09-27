@@ -1,6 +1,6 @@
 <?php
 
-include_once("./mail/class.phpmailer.php");
+include_once("./mail/phpmailer/class.phpmailer.php");
 
 class sendMail
 {
