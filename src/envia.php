@@ -9,7 +9,7 @@ $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
 $mensagem = null;
 
 //$emailDestino = $_REQUEST['emailDestino'];
-$emailDestino = "peterson@tecbiz.com.br";
+$emailDestino = "credenciamento@tecbiz.com.br";
 
 unset($_REQUEST['emailDestino']);
 $dataAmericana = explode("-", $_REQUEST['data_nascimento']);
