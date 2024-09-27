@@ -6,7 +6,7 @@ class sendMail
 
         function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null, $arquivoAnexo3)
         {
-                
+                /*
                 //$emailDestino = $emailDestino;
 		$assunto = urlencode($assunto);
 		//$msg = urlencode($msg);
@@ -17,7 +17,7 @@ class sendMail
 		$response = @file_get_contents($url);
 		return;
 
-                
+                */
                 
                 $mail = new PHPMailer(true);
                 $mail->IsSMTP();
