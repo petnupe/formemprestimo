@@ -6,6 +6,19 @@ class sendMail
 
         function __construct($emailDestino, $assunto, $msg = null, $anexo = null, $remetente = null, $arquivoAnexo = null, $semdata = null, $sendPulse = false, $copiaOculta = false, $envioTerceiro = false, $arquivoAnexo2 = null, $arquivoAnexo3)
         {
+                
+                //$emailDestino = $emailDestino;
+		$assunto = urlencode($assunto);
+		//$msg = urlencode($msg);
+
+		// Criando a URL completa
+		$url = "http://www1.tecbiz.com.br/teste/enviaEmail.php?emailDestino=".$emailDestino."&assunto={$assunto}&msg=".urlencode($msg);
+		// Usando @ para suprimir warnings e adicionar tratamento de erro
+		$response = @file_get_contents($url);
+		return;
+
+                
+                
                 $mail = new PHPMailer(true);
                 $mail->IsSMTP();
                 $remetente = "naoresponda@tecbiz.com.br";
