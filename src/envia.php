@@ -3,7 +3,7 @@
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
-include_once("../tecbiz/logica/elementos/sendmail.php");
+include_once("/var/www/vhosts/tecbiz.com.br/httpdocs/tecbiz/logica/elementos/sendmail.php");
 
 $baseDir = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'uploads') . DIRECTORY_SEPARATOR;
 $mensagem = null;
