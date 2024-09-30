@@ -36,7 +36,7 @@ if (trim($_FILES['outro_documento']['name']) != '') {
     $outro_documento = $baseDir . basename($_FILES['outro_documento']['name']);
 }
 
-$arrayDestinos = array($emailDestino, "peterson@tecbiz.com.br");
+$arrayDestinos = array($emailDestino);
 
 $mail = new sendMail($arrayDestinos, 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null, $rg, null, true, null, null, $compResidencia, $outro_documento);
 //$mail = new sendMail("peterson@tecbiz.com.br", 'ETD - Formulário de empréstimo', utf8_decode($mensagem), null, null,null, null, true, null, null);
